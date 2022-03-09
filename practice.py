@@ -1,0 +1,403 @@
+# Practice programs
+# Program1
+# Ask the user to enter their first name and then display the length of their first name. 
+# Then ask for their surname and display the length of their surname. Join their first 
+# name and surname together with a space between and display the result. Finally, 
+# display the length of their full name (including the space). 
+# firstname = input('>Enter first name: ')
+# print('Your first name is ' + str(len(firstname)) + ' characters long')
+# surname = input('>Enter sutname: ')
+# print('Your surname is ' + str(len(surname)) + ' characters long')
+# Fullname = ''
+# Fullname += firstname + ' ' + surname
+# print(Fullname)
+# print('Your full name is ' + str(len(Fullname)) + ' characters long')
+
+# Program2
+# Ask the user to type in their favourite school subject. 
+# Display it with “-” after each letter, e.g. S-p-a-n-i-s-h-.
+# favsubject = input('>Enter you favorite subject: ')
+# for i in favsubject:    
+#     print(i, end='-')
+
+# Program3
+# Show the user a line of text from your favourite poem and ask for a starting and ending point. 
+# Display the characters between those two points.
+# favline = 'The end is nigh'
+# print(favline)
+# start = int(input('Please enter a starting point(should be an interger value): '))
+# end = int(input('Now enter your endpoint(should also be an integer value): '))
+# print(favline[start:end])
+
+# Program4
+# Ask the user to type in a word in upper case. If they type it in lower case, ask them to try again. Keep 
+# repeating this until they type in a message all in uppercase.
+# while True:
+#     word = input('Enter a word in uppercase: ')
+#     if word.isupper():
+#         break
+#     else:
+#         continue
+
+# Program5
+# Ask the user to type in their postcode. Display the first two letters in uppercase. 
+# code = input('Enter your postcode: ').upper()
+# print(code[0:2])
+
+# Program6
+# Ask the user to type in their name and then tell them how many vowels are in their name.
+# vowels = ('a', 'e', 'i', 'o', 'u')
+# name = input('Enter your name: ').lower()
+# num_of_vowels = 0
+# for i in name:
+#     if i in vowels:
+#         num_of_vowels += 1
+# print('You have ' + str(num_of_vowels) + ' vowels in your name.')
+
+# Program7
+# Ask the user to enter a new password. Ask them to enter it again. If the two passwords 
+# match, display “Thank you”. If the letters are correct but in the wrong case, display the 
+# message “They must be in the same case”, otherwise display the message “Incorrect”. 
+# password = input('Enter your password: ')
+# verifypw = input('Verify your password ')
+
+# if password == verifypw:
+#     print('Thank you!!')
+   
+# elif (password.isupper() and verifypw.islower()) or (password.islower() and verifypw.isupper()):
+#     if password.lower() == verifypw:
+#         print('They must be in the same case')
+        
+#     elif password.upper() == verifypw:
+#         print('They must be in the same case')
+
+# else:
+#     print('Incorrect')
+# Program8
+# Ask the user to type in a word and then display it backwards on separate lines. For 
+# instance, if they type in “Hello” it should display as shown below: 
+# Enter text:
+# o
+# l
+# l
+# e
+# H
+# text = input('Enter text: ')
+# index = -1
+# try:
+    
+#     for letter in text:
+#         print(text[index], end='')
+#         index = index-1
+# except IndexError:
+#     print('Your word has been reversed')
+
+# Program9
+# Ask the user for a list of five integers. Store them in an array. 
+# Sort the list and display it in reverse order.
+# from array import *
+# nums = int(input('How many numbers would you like to add? '))
+# list = []
+# for i in range(nums):
+#     bro = int(input('enter a number: '))
+#     list.append(bro)
+# myarray = array ('i', list)
+# myarray = sorted(myarray)
+# myarray.reverse()
+# print(myarray)
+
+# Program10
+# Create an array which will store a list of integers. Generate five random numbers and store them in the array.
+# Display the array (showing each item on a separate line).
+# import random
+# string = [1,2,3,4,5]
+# list = []
+# for i in range(len(string)):
+#     num = random.randint(1, 1000)
+#     list.append(num)
+# newarray = array ('i', list)
+# for i in newarray:
+#     print(i)
+
+# Program11
+# Ask the user to enter numbers. If they enter a number between 10 and 20, save it in the array, 
+# otherwise display the message “Outside the range”. Once five numbers have been 
+# successfully added, display the message “Thank you” and display the array with each item shown on a separate line. 
+# list = []
+
+# nums = 1
+# while nums != 6:
+#     num = int(input('Enter a number betwee 10 and 20 '))
+#     if num > 20 or num<10:
+#         print('Outside the range')
+#     else:    
+#         list.append(num)
+#         nums += 1
+# print('Thank you!')
+# newarray = array ('i', list)
+# for i in newarray:
+#     print(i)
+
+# Program12
+# Create an array which contains five numbers (two of which should be repeated). 
+# Display the whole array to the user. Ask the user to enter one of the numbers from the array and 
+# then display a message saying how many times that number appears in the list.
+# myarray = array('i', [1,1,3,4,5])
+# print(myarray)
+# num = int(input('Enter a number from the array above: '))
+# if num in myarray:
+#     numofoccurences = myarray.count(num)
+#     print(f'{num} appears {numofoccurences} times')
+
+# Program13
+# Create two arrays (one containing three numbers that the user enters and one containing a set of five random numbers).
+# Join these two arrays together into one large array. Sort this large array and display it so that each number appears on a separate line.
+# list = []
+# for i in range(5):
+#     num = random.randint(1,50)
+#     list.append(num)
+# myarray = array('i', list)
+# userlist = []
+# for i in range(3):
+#     usernum = int(input('Provide a number: '))
+#     userlist.append(usernum)
+# userarray = array('i', userlist)
+# myarray.extend(userarray)
+# myarray = sorted(myarray)
+# for  i in myarray:
+#     print(i)
+
+# Program14 
+# Ask the user to enter five numbers. Sort them into order and present them to the user. 
+# Ask them to select one of the numbers. Remove it from the original array and save it in a new array.
+# listofnums = []
+# for i in range(5):
+#     num = int(input('Enter a number: '))
+#     listofnums.append(num)
+# listofnums = sorted(listofnums)
+# print(listofnums)
+# numtoremove = int(input('which number would you like to remove? '))
+# listofnums.remove(numtoremove)
+# newlist = []
+# newlist.append(numtoremove)
+# newarray = array('i', newlist)
+# print(newarray)
+
+# Program15
+# Display an array of five numbers. Ask the user to select one of the numbers. 
+# Once they have selected a number, display the position of that item in the array. 
+# If they enter something that is not in the array, ask them to try again until they select a relevant item.
+# mylist = []
+# for i in range(5):
+#     num = random.randint(10, 150)
+#     mylist.append(num)
+# myarray = array('i', mylist)
+# print(myarray)
+# selection = int(input('choose a number from array: '))
+# while True:
+#     if selection in myarray:
+#         print(myarray.index(selection))
+#         break
+#     else:
+#         continue 
+
+# Program16
+# Create an array of five numbers between 10 and 100 which each have two decimal places.
+# Ask the user to enter a whole number between 2 and 5. If they enter something outside of that range,
+# display a suitable error message and ask them to try again until they enter a valid amount. 
+# Divide each of the numbers in the array by the number the user entered and display the answers shown to two decimal places. 
+# mylist = [11.45, 64.27, 34.32, 89.23, 57.82]
+# myarray = array('f', mylist)
+# userinput = int(input('Enter a number between 2 and 5: '))
+# while True:    
+#     if userinput>5 or userinput<2:
+#         print('You have gone of the requested range')
+#         continue
+#     else:
+#         for i in myarray:
+#             i = i /userinput
+#             print(round(i,2))
+#         break
+
+# Program17
+# Create the following using a simple 2D list using the standard Python indexing: 
+# list = [[2,5,8], [3,7,4], [1,6,9], [4,2,0]]
+
+# Program18
+# Using the 2D list from program17, ask the user to select a row and a column and display that value.
+# coord1 = int(input('select a row(number between 0 and 2) '))
+# coord2 = int(input('select a column(number between 0 and 3) '))
+# print(list[coord2][coord1])
+
+# Prpogram19
+# Using the 2D list from program17, ask the user which row they would like displayed and display 
+# just that row. Ask them to enter a new value and add it to the end of the row and display the row
+# row = int(input('Which row would you like to be displayed? (0-3) '))
+# print(list[row])
+# newval = input('Enter a new value to be added to your selected row. ')
+# list[row].append(newval)
+# print(list[row])
+
+# Program20
+# Change your previous program to ask the user which row they want displayed. Display that 
+# row. Ask which column in that row they want displayed and display the value that is held 
+# there. Ask the user if they want to change the value. If they do, ask for a new value and change 
+# the data. Finally, display the whole row again.
+# row = int(input('Which row would you like to be displayed? (0-3) '))
+# print(list[row])
+# col = int(input('Which column would you like to access. (0-2) '))
+# print(list[row][col])
+# response = input('Would you like to change this value').lower()
+# while True:
+#     if response.startswith('y'):
+#         newval = int(input('Which value would you like to replace it with? '))
+#         list[row][col] = newval
+#         break
+#     else:
+#         print('you\'re to type in yes or no ')
+#         continue
+# print(list[row])
+
+# Program21
+# Create the following using a 2D dictionary showing the sales each person has made in the different 
+# geographical regions.
+# mydict = {'John':{'N':3056,'S':8463,'E':8441,'W':2694}, 'Tom':{'N':4832,'S':6786,'E':4737,'W':3612},
+#          'Anne':{'N':5239,'S':4802,'E':5820,'W':1859}, 'Fiona':{'N':3904,'S':3645,'E':8821,'W':2451}}
+
+# Program22
+# Using program21, ask the user for a name and a region. Display the relevant data. 
+# Ask the user for the name and region of data they want to change and allow them to make 
+# the alteration to the sales figure. Display the sales for all regions for the name they choose.
+# name = input('Enter a name from the dictionary: ').title()
+# region = input('Enter a region (N,W,S,E)  ').upper()
+# print(mydict[name][region])
+# name2 = input('Enter the name from the dictionary you\'d like to make changes on: ').title()
+# region2 = input('Enter a corresponding region (N,W,S,E):  ').upper()
+# newvalue = int(input('what\'s the new value? '))
+# mydict[name2][region2] = newvalue
+# print(f'These are the values of the regional sales of {name2}')
+# print(mydict[name2])
+
+# Program23
+# Ask the user to enter the name, age and shoe size for four people. 
+# Ask for the name of one of the people in the list and display their age and shoe size.
+# data = {}
+# for num in range(1,5):
+#         print(f'Collecting data for user{num}')
+#         name = input('Enter the name: ')
+#         age = input('Enter age')
+#         shoesize = (input('Enter a shoe size: '))
+#         data[name] = {'age': age, 'shoesize': shoesize}    
+# newname = input('Whose details would you like to view? ')
+# print(data)
+# print(data[name])
+
+# Program24
+# Adapt program 102 to display the names and ages of 
+# all the people in the list but do not show their shoe size.
+# data = {}
+# for num in range(1,5):
+#         print(f'Collecting data for user{num}')
+#         name = input('Enter the name: ')
+#         age = input('Enter age')
+#         shoesize = (input('Enter a shoe size: '))
+#         data[name] = {'age': age, 'shoesize': shoesize}    
+# print(data)
+# for k in data:
+#     print(k + ', age:'+ data[k]['age'] )
+
+# Program25
+# After gathering the four names, ages and shoe sizes, ask the user to enter the name of the person they want to remove from 
+# the list. Delete this row from the data and display the other rows on separate lines. 
+# data = {}
+# for num in range(1,5):
+#         print(f'Collecting data for user{num}')
+#         name = input('Enter the name: ')
+#         age = input('Enter age')
+#         shoesize = (input('Enter a shoe size: '))
+#         data[name] = {'age': age, 'shoesize': shoesize}    
+
+# print('whose data would you like to delete? ')
+# deleted = input()
+# del data[deleted]
+# for k in data:
+#     print(k + ', age: '+ data[k]['age'] + ', shoesize: ' + data[k]['shoesize'])
+
+# Program26
+# Write a new file called “Numbers.txt”. Add five numbers to the document which are stored 
+# on the same line and only separated by a comma. Once you have run the program, look in the location where 
+# your program is stored and you should see that the file has been created. The easiest way to 
+# view the contents of the new text file on a Windows system is to read it using Notepad.
+# numbers = open('Numbers.txt', 'w')
+# numbers.write('1, 2, 3, 4, 5')
+# numbers.close()
+
+# Program27
+# Create a new file called “Names.txt”. Add five names to the 
+# document, which are stored on separate lines. Once you have 
+# run the program, look in the location where your program is 
+# stored and check that the file has been created properly.
+# Names = open('Names.txt', 'w')
+# Names.write('Holy God\n')
+# Names.write('Jesus' + '\n')
+# Names.write('Adonai\n')
+# Names.write('Yaweh\n')
+# Names.write('Father\n')
+# Names.close()
+
+# # Program28
+# # Open the Names.txt file and display the data in Python. 
+# Names = open('Names.txt','r')
+# print(Names.read())
+
+# Program29
+# Open the Names.txt file. Ask the user to input a new name. Add this to the end of the file and display the entire file. 
+# userinput = input('Enter a name: ')
+# Names = open('Names.txt', 'a')
+# Names.write(userinput + '\n')
+# Names = open('Names.txt', 'r')
+# print(Names.read())
+# Names.close()
+
+# Program30
+# Display the following menu to the user: 
+# 1) Create a new  file
+# 2) Display the file
+# 3) Add a new item to the file
+# Make a selection 1, 2 or 3
+# Ask the user to enter 1, 2 or 3. If they select anything other than 1, 2 or 3 it should display a 
+# suitable error message. If they select 1, ask the user to enter a school subject and save it to a new file called 
+# “Subject.txt”. It should overwrite any existing file with a new file. 
+# If they select 2, display the contents of the “Subject.txt” file. 
+# If they select 3, ask the user to enter a new subject and save it to the file and then display 
+# the entire contents of the file. Run the program several times to test the options.
+
+while True:
+    print('''
+    1) Create a new  file
+    2) Display the file
+    3) Add a new item to the file
+''')
+    response = int(input('Make a selection 1, 2 or 3: '))
+    if response == 1:
+        newfile = open('Subject.txt', 'w')
+        subj = input('Which subject would you like to add? ')
+        newfile.write(subj+'\n')
+        newfile.close()
+    elif response == 2:
+        file = open('Subject.txt', 'r')
+        print(file.read())
+    elif response == 3:
+        file = open('Subject.txt', 'a')
+        res = input('Which new subject would you like to add to the file? ')
+        file.write(res + '\n')
+        file.close()
+        file = open('Subject.txt', 'r')
+        print(file.read())
+    else:
+        print('Please enter a valid integer')
+    ask = input('Would you like to do something else? (y or n) ').lower()
+    if ask.startswith('y'):
+        continue
+    else:
+        break
