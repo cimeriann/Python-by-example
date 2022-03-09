@@ -499,30 +499,35 @@ import csv
 # Import the data from the Books.csv file into a list. Display the list to the user. Ask them to select which row from the list 
 # they want to delete and remove it from the list. Ask the user which data they want to change and allow them to change it. 
 # Write the data back to the original .csv file, overwriting the existing data with the amended data. 
-file = open('Books.csv')
-fmp = list(file)
-rownum = 0
-for i in fmp:
-    print('Row number: ' + str(rownum+1))
-    print(i)
-    rownum += 1
+# file = open('Books.csv')
+# fmp = list(file)
+# rownum = 0
+# for i in fmp:
+#     print('Row number: ' + str(rownum+1))
+#     print(i)
+#     rownum += 1
 
-getrid = int(input('which row would you like to delete? '))
-del fmp[getrid-1]
-print(f'row {getrid} has been deleted.')
-newnum = 0
-for i in fmp:
-    print('Row number: ' + str(newnum+1))
-    print(i)
-    newnum += 1
-print('which row would you like to change? ')
-ans = int(input())
-name = input('Name of book: ')
-author = input('name of author: ')
-year = input('when was the book published?: ')
-fmp[ans-1] = name+', '+author+', '+year
-file = open('Books.csv', 'w')
-for i in fmp:
-    file.write(i+'\n')
-file.close()
+# getrid = int(input('which row would you like to delete? '))
+# del fmp[getrid-1]
+# print(f'row {getrid} has been deleted.')
+# newnum = 0
+# for i in fmp:
+#     print('Row number: ' + str(newnum+1))
+#     print(i)
+#     newnum += 1
+# print('which row would you like to change? ')
+# ans = int(input())
+# name = input('Name of book: ')
+# author = input('name of author: ')
+# year = input('when was the book published?: ')
+# fmp[ans-1] = name+', '+author+', '+year
+# file = open('Books.csv', 'w')
+# for i in fmp:
+#     file.write(i+'\n')
+# file.close()
 
+# Program38
+# Create a simple maths quiz that will ask the user for their name and then generate two 
+# random questions. Store their name, the questions they were asked, their answers and 
+# their final score in a .csv file. Whenever the program is run it should add to the .csv file 
+# and not overwrite anything.
