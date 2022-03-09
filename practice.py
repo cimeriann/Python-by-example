@@ -372,32 +372,157 @@
 # If they select 3, ask the user to enter a new subject and save it to the file and then display 
 # the entire contents of the file. Run the program several times to test the options.
 
-while True:
-    print('''
-    1) Create a new  file
-    2) Display the file
-    3) Add a new item to the file
-''')
-    response = int(input('Make a selection 1, 2 or 3: '))
-    if response == 1:
-        newfile = open('Subject.txt', 'w')
-        subj = input('Which subject would you like to add? ')
-        newfile.write(subj+'\n')
-        newfile.close()
-    elif response == 2:
-        file = open('Subject.txt', 'r')
-        print(file.read())
-    elif response == 3:
-        file = open('Subject.txt', 'a')
-        res = input('Which new subject would you like to add to the file? ')
-        file.write(res + '\n')
-        file.close()
-        file = open('Subject.txt', 'r')
-        print(file.read())
-    else:
-        print('Please enter a valid integer')
-    ask = input('Would you like to do something else? (y or n) ').lower()
-    if ask.startswith('y'):
-        continue
-    else:
-        break
+# while True:
+#     print('''
+#     1) Create a new  file
+#     2) Display the file
+#     3) Add a new item to the file
+# ''')
+#     response = int(input('Make a selection 1, 2 or 3: '))
+#     if response == 1:
+#         newfile = open('Subject.txt', 'w')
+#         subj = input('Which subject would you like to add? ')
+#         newfile.write(subj+'\n')
+#         newfile.close()
+#     elif response == 2:
+#         file = open('Subject.txt', 'r')
+#         print(file.read())
+#     elif response == 3:
+#         file = open('Subject.txt', 'a')
+#         res = input('Which new subject would you like to add to the file? ')
+#         file.write(res + '\n')
+#         file.close()
+#         file = open('Subject.txt', 'r')
+#         print(file.read())
+#     else:
+#         print('Please enter a valid integer')
+#     
+#     Note: This is just my own modification to the question.
+#     ask = input('Would you like to do something else? (y or n) ').lower()
+#     if ask.startswith('y'):
+#         continue
+#     else:
+#         break
+
+# Program31
+# Create a .csv file that will store the following data. Call it “Books.csv”. 
+#       Book                                    Author                      Year Released 
+# 0     To Kill A Mockingbird                   Harper Lee                  1960 
+# 1     A Brief History of Time                 Stephen Hawking             1988 
+# 2     The Great Gatsby                        F. Scott Fitzgerald         1922 
+# 3     The Man Who Mistook His Wife for a Hat  Oliver Sacks                1985 
+# 4     Pride and Prejudice                     Jane Austen                 1813
+import csv
+# newcsvfile = open('Books.csv','w')
+# newcsvfile.close()
+# for i in range(5):
+#     print('adding a new book.')
+#     newcsvfile = open('Books.csv', 'a')
+#     bookname = input('Book\'s name: ')
+#     author = input('Author of the book: ')
+#     year = input('when was the book released? ')
+#     newcsvfile.write(bookname +', '+author +', '+ year + '\n')
+#     newcsvfile.close()
+
+# Program32
+# Using the Books.csv file from program 111, ask the user to enter another 
+# record and add it to the end of the file. Display each row of the .csv file on a separate line. 
+# file = open('Books.csv', 'a')
+# print('Add a new record')
+# bookname = input('Book\'s name: ')
+# author = input('Author of the book: ')
+# year = input('when was the book released? ')
+# file.write(bookname +', '+author +', '+ year + '\n')
+# file.close()
+# file = open('Books.csv', 'r')
+# for row in file:
+#     print(row)
+# file.close()
+
+
+# Progam33
+# Using the Books.csv file, ask the user how many records they want to add to the list and then allow them to add 
+# that many. After all the data has been added, ask for an author and display all the books in the list by that author. 
+# If there are no books by that author in the list, display a suitable message.
+# rec = int(input('How many records do you want to add? '))
+# for i in range(rec):
+#     newcsvfile = open('Books.csv', 'a')
+#     bookname = input('Book\'s name: ')
+#     author = input('Author of the book: ')
+#     year = input('when was the book released? ')
+#     newcsvfile.write(bookname +', '+author +', '+ year + '\n')
+#newcsvfile.close()
+# file = open('Books.csv', 'r')
+# reply = input('whose book would you like to view? ').title()
+# # reader = csv.reader(file)
+# for row in file:
+#     if reply in row:
+#         print(row)
+# if reply not in row:
+#     print('no results for that author.')
+
+# Program34
+# Using the Books.csv file, ask the user to enter a starting year and an end 
+# year. Display all books released between those two years. 
+# start = int(input('Which year would you like to start you search? '))
+# end = int(input('Which year would you like to end you search? '))
+# file = list(csv.reader(open('Books.csv')))
+# fmp = []
+# for row in file:
+    # fmp.append(row)
+# for i in range(len(file)):
+#     if int(file[i][2]) >= start and int(file[i][2]) <= end:
+#         print(file[i])
+# This block of code works just fine too.
+# for i in range(len(fmp)):
+#     if int(fmp[i][2]) >= start and int(fmp[i][2]) <= end:
+#         print(fmp[i])
+
+
+# Program35
+# Using the Books.csv file, display the data in the file along with the row number of each.
+# file = open('Books.csv')
+# fmp = list(file)
+# rownum = 0
+# for i in fmp:
+#     print('Row number: ' + str(rownum+1))
+#     print(i)
+#     rownum += 1
+# This block works just fine too
+# rownum = 0
+# for i in file:
+#     print('Row number: ' + str(rownum+1))
+#     print(i)
+#     rownum += 1
+
+# Program36
+# Import the data from the Books.csv file into a list. Display the list to the user. Ask them to select which row from the list 
+# they want to delete and remove it from the list. Ask the user which data they want to change and allow them to change it. 
+# Write the data back to the original .csv file, overwriting the existing data with the amended data. 
+file = open('Books.csv')
+fmp = list(file)
+rownum = 0
+for i in fmp:
+    print('Row number: ' + str(rownum+1))
+    print(i)
+    rownum += 1
+
+getrid = int(input('which row would you like to delete? '))
+del fmp[getrid-1]
+print(f'row {getrid} has been deleted.')
+newnum = 0
+for i in fmp:
+    print('Row number: ' + str(newnum+1))
+    print(i)
+    newnum += 1
+print('which row would you like to change? ')
+ans = int(input())
+name = input('Name of book: ')
+author = input('name of author: ')
+year = input('when was the book published?: ')
+fmp[ans-1] = name+', '+author+', '+year
+file = open('Books.csv', 'w')
+for i in fmp:
+    file.write(i+'\n')
+file.close()
+
