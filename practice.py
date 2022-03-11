@@ -531,3 +531,228 @@ import csv
 # random questions. Store their name, the questions they were asked, their answers and 
 # their final score in a .csv file. Whenever the program is run it should add to the .csv file 
 # and not overwrite anything.
+# import csv
+# import random
+
+# def mathsquiz():
+    
+#     questionbank = ['What is 10 divided by 2?', 'What is six multiplied by six?','Divide 169 by 13',
+#                 'how many sevens are there in 49?', 'what\'s the result of 16 divided by 2?', 'What is the square root of 144?']
+#     answerbank = ['5', '36', '13','7', '8', '12']
+#     score = 0
+#     name = input('What is your name? ')
+#     q1 = questionbank[random.randint(0, (len(questionbank)-1))]
+#     print(q1)
+#     answer1 = input('Enter your answer to question1 (integers only): ')
+#     for i in range(len(answerbank)):
+#         if answer1 == answerbank[i]:
+#             print('correct!')
+#             score += 1
+       
+#     q2 = questionbank[random.randint(0, (len(questionbank)-1))]
+#     print(q2)
+#     answer2 = input('Enter your answer to question2 (integers only): ') 
+#     for i in range(len(answerbank)):
+#         if answer2 == answerbank[i]:
+#             print('correct!')
+#             score += 1
+        
+#     file = open('Data.csv','w')
+#     file.close()
+#     file = open('data.csv', 'a')
+#     newdata = name + ', ' + q1 + ' answer: ' + answer1 +', '+ q2 + ' answer: ' + answer2 + ' total score: ' + str(score) 
+#     file.write(newdata + '\n')
+#     file.close()
+#     return 'Your final score is ' + str(score)
+
+# mathsquiz()
+
+# Program39 
+# Define a subprogram that will ask the user to enter a number and save it as the variable 
+# “num”. Define another subprogram that will use “num” and count from 1 to that number.
+# def asknum():
+    # num = int(input('Enter a number: '))
+# def gen_nums(num):
+    # for i in range(1, (num+1)):
+        # print(i)
+
+# Program40
+# Define a subprogram that will ask the user to pick a low and a high number, and then generate a random number between those two 
+# values and store it in a variable called “comp_num”. Define another subprogram that will give the instruction “I am thinking of a number…” 
+# and then ask the user to guess the number they are thinking of. Define a third subprogram that will check to see if the comp_num is the same 
+# as the user’s guess. If it is, it should display the message “Correct, you win”, otherwise it shouldkeep looping, telling the 
+# user if they are too low or too high and asking them to guess again until they guess correctly.
+# import random
+# def pick_num():
+#     low = int(input('Pick a low number: '))
+#     high = int(input('Pick a high number: '))
+#     comp_num = random.randint(low, high)
+#     return comp_num
+# def guess_num():
+#     print('I am thinking of a number. ')
+#     user_guess = int(input('Input your guess. '))
+#     return user_guess
+# def compare(): 
+#     figure = pick_num() 
+#     while True:
+#         usernum = guess_num()
+#         if figure == usernum:
+#             print('Correct, you win!')
+#             break
+#         elif figure < usernum:
+#             print('You guessed too high. ')
+#             continue
+#         elif figure > usernum:
+#             print('You guessed too low, try again. ')
+#             continue
+# compare()
+
+# Program41
+# Display the following menu to the user: 
+    # 1) Addition
+    # 2) Subtraction
+    # Enter 1 or 2:
+# If they enter a 1, it should run a subprogram that will generate two random numbers between 5 and 20, and 
+# ask the user to add them together. Work out the correct answer and return both the user’s answer and the 
+# correct answer. If they entered 2 as their selection on the menu, it should run a subprogram that will generate one number 
+# between 25 and 50 and another number between 1 and 25 and ask them to work out num1 minus num2. This way they will not have to 
+# worry about negative answers. Return both the user’s answer and the correct answer. Create another subprogram that will check if the user’s 
+# answer matches the actual answer. If it does, display “Correct”, otherwise display a message that will say “Incorrect, the answer is” and 
+# display the real answer. If they do not select a relevant option on the first menu you should display a suitable message.
+import random
+# def add():
+#     num1 = random.randint(5, 20)
+#     num2 = random.randint(5, 20)
+#     true_result = num1 + num2
+#     print(f'Add {num1} and {num2} together')
+#     result = int(input('What is your answer? '))
+#     # print('True answer: ' + str(true_result))
+#     datatup = (result, true_result)
+#     return datatup
+    
+# def subtract():
+#     num1 = random.randint(25, 50)
+#     num2 = random.randint(1, 25)
+#     true_result = num1 - num2
+#     print(f'Work out {num1} minus {num2}')
+#     result = int(input('What is your answer? '))
+#     datatup = (result, true_result)
+#     return datatup
+#     # print('True answer: ' + str(true_result))
+# def checkresult(result,true_result):
+#     if result == true_result:
+#             print('Correct.')
+#     else:
+#         print('Incorrect, the answer is: ' + str(true_result))
+
+# def main():
+#     while True:
+#         print('''
+#         1) Addition
+#         2) Subtraction
+#         Enter 1 or 2:
+#         ''')
+#         reply = int(input())
+        
+#         if reply == 1:
+#             result,true_result = add()
+#             checkresult(result,true_result)
+#             break
+#         elif reply == 2:
+#             result,true_result = subtract()
+#             checkresult(result,true_result)
+#             break
+#         else:
+#             print('Please pick a valid option.')
+#             continue
+# main()
+
+# Program42
+# Create a program that will allow the user to easily manage a list of names. You should 
+# display a menu that will allow them to add a name to the list, change a name in the 
+# list, delete a name from the list or view all the names in the list. There should also be a 
+# menu option to allow the user to end the program. If they select an option that is not 
+# relevant, then it should display a suitable message. After they have made a selection 
+# to either add a name, change a name, delete a name or view all the names, they 
+# should see the menu again without having to restart the program. The program 
+# should be made as easy to use as possible.
+
+# def edit():
+#     names = ['alpha', 'tango', 'bravo', 'yinka','jojo','namikaze','demi']
+#     while True:
+#         print(''' What would you like to do?
+#     1) Add a name to the list
+#     2) Change a name in the list
+#     3) delete a name from the list
+#     4) View the entire list of names
+#     5) End the program
+#     ''') 
+#         response = int(input('Enter 1,2,3,4 or 5 '))
+#         if response == 1:
+#             newname = input('which new name would you like to the list? ')
+#             names.append(newname)
+#         elif response == 2:
+#             mod = input('Which name would you like to modify? ').lower()
+#             if mod in names:
+#                 word = input('Enter your new name: ')
+#                 index = names.index(mod)
+#                 names[index] = word
+#                 continue
+#             elif mod not in names:
+#                 print('The name you entered does not exist in the list of names')
+#                 continue
+#         elif response == 3:
+#             deleted = input('Enter the name you\'d like to delete from the list ').lower()
+            
+#             if deleted in names:
+#                 index = names.index(deleted)
+#                 del names[index]
+#                 continue
+#             else:
+#                 print('The name you entered does not exist in the list of names')
+#                 continue
+#         elif response == 4:
+#             print(names)
+#             continue
+#         elif response ==5:
+#             break
+# edit()
+
+# Program43
+# Create the following menu: 
+# 1) Add to file
+# 2) View all records
+# 3) Quit program
+# If the user selects 1, allow them to add to a file called Salaries.csv which will store their name 
+# and salary. If they select 2 it should display all records in the Salaries.csv file. If they select 3 it should stop the program. 
+# If they select an incorrect option they should see an error message. They should keep returning to the menu until they select option 3.
+
+
+file = open('Salaries.csv','w')
+file.close()
+def myprogram():
+    while True:
+        print(''' What would you like to do?
+        1) Add to file
+        2) View all records
+        3) Quit program
+        ''')
+        response = int(input('Enter 1, 2 or 3 '))
+        if response == 1:
+            file = open('Salaries.csv','a')
+            name = input('Enter a name: ')
+            salary = input('Enter their salary: ')
+            newrecord = 'name: ' + file + ', ' + 'salary: ' + salary
+            file.write(newrecord + '\n')
+            file.close()
+            continue
+        elif response== 2:
+            file = open('Salaries.csv')
+            files = list(file)
+            for i in files:
+                print(i)
+            continue
+        elif response == 3:
+            break
+        else:
+            print('Please select a valid option from the menu(must be an integer value)')
