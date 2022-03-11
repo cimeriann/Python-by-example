@@ -728,31 +728,104 @@ import random
 # If they select an incorrect option they should see an error message. They should keep returning to the menu until they select option 3.
 
 
-file = open('Salaries.csv','w')
-file.close()
+# file = open('Salaries.csv','w')
+# file.close()
+# def myprogram():
+#     while True:
+#         print(''' What would you like to do?
+#         1) Add to file
+#         2) View all records
+#         3) Quit program
+#         ''')
+#         response = (input('Enter 1, 2 or 3 '))
+#         if response == '1':
+#             file = open('Salaries.csv','a')
+#             name = input('Enter a name: ')
+#             salary = input('Enter their salary: ')
+#             newrecord = 'name: ' + name + ', ' + 'salary: ' + salary
+#             file.write(newrecord + '\n')
+#             file.close()
+#             continue
+#         elif response== '2':
+#             file = open('Salaries.csv')
+#             files = list(file)
+#             for i in files:
+#                 print(i)
+#             continue
+#         elif response == '3':
+#             break
+#         else:
+#             print('Please select a valid option from the menu(must be 1,2 or 3)')
+# myprogram()
+
+# Program44
+# In Python, it is not technically possible to directly delete a record from a .csv file. Instead you need 
+# to save the file to a temporary list in Python, make the changes to the list and then overwrite 
+# the original file with the temporary list. Change the previous program to allow you to do this. Your menu should now look like this: 
+# 1) Add to file
+# 2) View all records
+# 3) Delete a record
+# 4) Quit program
+
 def myprogram():
     while True:
         print(''' What would you like to do?
         1) Add to file
         2) View all records
-        3) Quit program
+        3) Delete a record
+        4) Change a record
+        5) Quit program
         ''')
-        response = (input('Enter 1, 2 or 3 '))
+        response = (input('Enter 1, 2, 3, 4 or 5 '))
         if response == '1':
             file = open('Salaries.csv','a')
             name = input('Enter a name: ')
             salary = input('Enter their salary: ')
-            newrecord = 'name: ' + name + ', ' + 'salary: ' + salary
-            file.write(newrecord + '\n')
+            newrecord = 'name: ' + name + ', ' + 'salary: ' + salary +'\n'
+            file.write(newrecord)
             file.close()
             continue
         elif response== '2':
             file = open('Salaries.csv')
-            files = list(file)
-            for i in files:
+            # files = list(file)
+            for i in file:
                 print(i)
             continue
-        elif response == '3':
+        elif response== '3':
+            file = open('Salaries.csv')
+            rec = list(file)
+            num = 0
+            for i in rec:
+                print('Record number ' + str(num+1))
+                print(i)
+                num += 1
+            print('which record would you like to delete?')
+            todelete = int(input())
+            del rec[todelete-1]
+            for i in rec:
+                newfile = open('Salaries.csv','w')
+                newfile.write(i)
+                newfile.close()
+        elif response == '4':
+            file = list(open('Salaries.csv'))
+            num = 0
+            for i in file:
+                print('Record number ' + str(num+1))
+                print(i)
+                num += 1
+            print('which record would you like to change? ')
+            index = int(input('Integer values only '))
+            name = input('Enter a name: ')
+            salary = input('Enter their salary: ')
+            newrec = 'name: ' + name + ', ' + 'salary: ' + salary
+            file[index-1] = newrec
+            for i in file:
+                newfile = open('Salaries.csv','a')
+                newfile.write(i + '\n')
+                newfile.close()
+            continue
+
+        elif response == '5':
             break
         else:
             print('Please select a valid option from the menu(must be 1,2 or 3)')
