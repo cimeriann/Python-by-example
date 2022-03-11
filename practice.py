@@ -737,22 +737,23 @@ def myprogram():
         2) View all records
         3) Quit program
         ''')
-        response = int(input('Enter 1, 2 or 3 '))
-        if response == 1:
+        response = (input('Enter 1, 2 or 3 '))
+        if response == '1':
             file = open('Salaries.csv','a')
             name = input('Enter a name: ')
             salary = input('Enter their salary: ')
-            newrecord = 'name: ' + file + ', ' + 'salary: ' + salary
+            newrecord = 'name: ' + name + ', ' + 'salary: ' + salary
             file.write(newrecord + '\n')
             file.close()
             continue
-        elif response== 2:
+        elif response== '2':
             file = open('Salaries.csv')
             files = list(file)
             for i in files:
                 print(i)
             continue
-        elif response == 3:
+        elif response == '3':
             break
         else:
-            print('Please select a valid option from the menu(must be an integer value)')
+            print('Please select a valid option from the menu(must be 1,2 or 3)')
+myprogram()
