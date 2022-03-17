@@ -767,66 +767,89 @@ import random
 # 3) Delete a record
 # 4) Quit program
 
-def myprogram():
-    while True:
-        print(''' What would you like to do?
-        1) Add to file
-        2) View all records
-        3) Delete a record
-        4) Change a record
-        5) Quit program
-        ''')
-        response = (input('Enter 1, 2, 3, 4 or 5 '))
-        if response == '1':
-            file = open('Salaries.csv','a')
-            name = input('Enter a name: ')
-            salary = input('Enter their salary: ')
-            newrecord = 'name: ' + name + ', ' + 'salary: ' + salary +'\n'
-            file.write(newrecord)
-            file.close()
-            continue
-        elif response== '2':
-            file = open('Salaries.csv')
-            # files = list(file)
-            for i in file:
-                print(i)
-            continue
-        elif response== '3':
-            file = open('Salaries.csv')
-            rec = list(file)
-            num = 0
-            for i in rec:
-                print('Record number ' + str(num+1))
-                print(i)
-                num += 1
-            print('which record would you like to delete?')
-            todelete = int(input())
-            del rec[todelete-1]
-            for i in rec:
-                newfile = open('Salaries.csv','w')
-                newfile.write(i)
-                newfile.close()
-        elif response == '4':
-            file = list(open('Salaries.csv'))
-            num = 0
-            for i in file:
-                print('Record number ' + str(num+1))
-                print(i)
-                num += 1
-            print('which record would you like to change? ')
-            index = int(input('Integer values only '))
-            name = input('Enter a name: ')
-            salary = input('Enter their salary: ')
-            newrec = 'name: ' + name + ', ' + 'salary: ' + salary
-            file[index-1] = newrec
-            for i in file:
-                newfile = open('Salaries.csv','a')
-                newfile.write(i + '\n')
-                newfile.close()
-            continue
+# def myprogram():
+#     while True:
+#         print(''' What would you like to do?
+#         1) Add to file
+#         2) View all records
+#         3) Delete a record
+#         4) Change a record
+#         5) Quit program
+#         ''')
+#         response = (input('Enter 1, 2, 3, 4 or 5 '))
+#         if response == '1':
+#             file = open('Salaries.csv','a')
+#             name = input('Enter a name: ')
+#             salary = input('Enter their salary: ')
+#             newrecord = 'name: ' + name + ', ' + 'salary: ' + salary +'\n'
+#             file.write(newrecord)
+#             file.close()
+#             continue
+#         elif response== '2':
+#             file = open('Salaries.csv')
+#             # files = list(file)
+#             for i in file:
+#                 print(i)
+#             continue
+#         elif response== '3':
+#             file = open('Salaries.csv')
+#             rec = list(file)
+#             num = 0
+#             for i in rec:
+#                 print('Record number ' + str(num+1))
+#                 print(i)
+#                 num += 1
+#             print('which record would you like to delete?')
+#             todelete = int(input())
+#             del rec[todelete-1]
+#             for i in rec:
+#                 newfile = open('Salaries.csv','w')
+#                 newfile.write(i)
+#                 newfile.close()
+#         elif response == '4':
+#             file = list(open('Salaries.csv'))
+#             num = 0
+#             for i in file:
+#                 print('Record number ' + str(num+1))
+#                 print(i)
+#                 num += 1
+#             print('which record would you like to change? ')
+#             index = int(input('Integer values only '))
+#             name = input('Enter a name: ')
+#             salary = input('Enter their salary: ')
+#             newrec = 'name: ' + name + ', ' + 'salary: ' + salary
+#             file[index-1] = newrec
+#             for i in file:
+#                 newfile = open('Salaries.csv','a')
+#                 newfile.write(i + '\n')
+#                 newfile.close()
+#             continue
 
-        elif response == '5':
-            break
-        else:
-            print('Please select a valid option from the menu(must be 1,2 or 3)')
-myprogram()
+#         elif response == '5':
+#             break
+#         else:
+#             print('Please select a valid option from the menu(must be 1,2 or 3)')
+# myprogram()
+
+# Program45(GUIs)
+# Create a window that will ask the user to enter their name. When they click on a button it should display 
+# the message “Hello” and their name and change the background colour and font colour of the message box.
+from tkinter import *
+def hello():
+    name = entry_box.get()
+    message = Label(window,text =f'Hello {name}')
+    message.place(x=30,y=50)
+    button['bg'] = 'blue'
+    button['fg'] = 'white'
+    
+window = Tk()
+window.title('Jotarou\'s window')
+window.geometry('400x100')
+mylabel = Label(window, text = "Enter your name:")
+mylabel.pack(side = LEFT)
+entry_box = Entry(window,bd = 5)
+entry_box.pack(side = LEFT)
+
+button = Button(window,text='Press me!', command=hello)
+button.place(x=100,y=70, width=100, height=20)
+window.mainloop()
